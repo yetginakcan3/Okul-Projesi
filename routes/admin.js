@@ -1,23 +1,13 @@
 const express=require('express')
 const router=express.Router()
 
+const path = require('path')
+
+
 
 // admin/add-student (GET)
 router.get('/add-student', (req, res, next) => {
-    res.send(`
-        <html>
-        <head>
-            <title>Add a New Student</title>
-        </head>
-        <body>
-            <form action="/admin/add-student" method="POST">
-                <label for="studentName">Student Name:</label>
-                <input type="text" id="studentName" name="studentName" required>
-                <input type="submit" value="Save Student">
-            </form>
-        </body>
-        </html>
-    `);
+    res.sendFile(path.join(__dirname,'../','views','add-student.html'))
 });
 
 // admin/add-student (POST)

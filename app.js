@@ -3,6 +3,7 @@ const app = express();
 const bodyParser= require('body-parser');
 const path = require('path')
 
+const sequelize = require('./utility/database')
 
 const adminRoutes= require('./routes/admin')
 const userRoutes= require('./routes/user')
@@ -16,6 +17,19 @@ app.use(express.static(path.join(__dirname,'public')))
 //Routes
 app.use('/admin',adminRoutes)
 app.use(userRoutes)
+
+const testConnection = async () => {
+    try {
+      await sequelize.authenticate();
+      console.log('Veritabanı bağlantısı başarılı.');
+    } catch (error) {
+      console.error('Veritabanı bağlantısı başarısız:', error);
+    } finally {
+      await sequelize.close();
+    }
+  };
+  
+  testConnection()
 
 
 app.use((req,res) =>{

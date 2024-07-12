@@ -1,0 +1,26 @@
+/* styles.css */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Slider'ın yüksekliğini belirtiyoruz */
+}
+
+.carousel-item {
+    width: 100vw;
+    max-height: 89vh;  /* Slider'ın genişliği */
+}
+
+.carousel-item img {
+    width: 100vw;
+    max-height: 89vh;
+    object-fit: cover; /* Resimlerin boyutları sabit kalır, taşma yapmaz */
+}
+
+.page-content {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+

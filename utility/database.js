@@ -5,4 +5,6 @@ const sequelize = new Sequelize('codegigi','postgres','1234',{
     host:'localhost'
 })
 
+
+
 module.exports=sequelize

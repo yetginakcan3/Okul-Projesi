@@ -12,13 +12,10 @@ const Course = sequelize.define('course',{
         type:Sequelize.STRING,
         allowNull:false
     },
-    description: {
-        type: Sequelize.STRING,
-      },
-    teacherId:{
+    principalId:{
         type:Sequelize.INTEGER,
         references: {
-            model: 'teachers',
+            model: 'principals',
             key: 'id',
           },
         },

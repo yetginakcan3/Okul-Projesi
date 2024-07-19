@@ -20,11 +20,11 @@ const Student = sequelize.define('student', {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    classId: {
+    principalId: {
       type: Sequelize.INTEGER,
       allowNull:false,
       references: {
-        model: 'classes',
+        model: 'principals',
         key: 'id',
       },
     },

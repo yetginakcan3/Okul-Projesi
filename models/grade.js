@@ -15,14 +15,14 @@ const Grade = sequelize.define('grade',{
         key:'id',
     },
    },
-    courseID:{
+    teacherId:{
         type:Sequelize.INTEGER,
         references:{
-            model:'courses',
+            model:'teachers',
             key:'id',
         },
     },
-    grade:{
+    value:{
         type:Sequelize.FLOAT
     }
     

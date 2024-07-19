@@ -20,7 +20,16 @@ const Teacher = sequelize.define('teachers',{
     password:{
         type:Sequelize.STRING,
         allowNull:false
-    }
+    },
+    principalId: {
+        type: Sequelize.INTEGER,
+        allowNull:false,
+        references: {
+          model: 'principals',
+          key: 'id',
+        },
+      },
+
     
 })
 

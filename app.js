@@ -13,6 +13,28 @@ const Class = require('./models/class');
 const Course = require('./models/course');
 const Grade = require('./models/grade');
 
+Principal.hasMany(Teacher);
+Teacher.belongsTo(Principal);
+
+Principal.hasMany(Student);
+Student.belongsTo(Principal);
+
+Principal.hasMany(Class);
+Class.belongsTo(Principal);
+
+Principal.hasMany(Course);
+Course.belongsTo(Principal);
+
+Teacher.hasMany(Grade)
+Grade.belongsTo(Teacher)
+
+Student.hasMany(Grade)
+Grade.belongsTo(Student)
+
+
+
+
+
 
 const adminRoutes= require('./routes/admin')
 const userRoutes= require('./routes/user')

@@ -5,8 +5,14 @@ const path = require('path')
 
 
 const sequelize = require('./utility/database')
+
 const Principal = require('./models/principal');
 const Teacher = require('./models/teacher');
+const Student = require('./models/student');
+const Class = require('./models/class');
+const Course = require('./models/course');
+const Grade = require('./models/grade');
+
 
 const adminRoutes= require('./routes/admin')
 const userRoutes= require('./routes/user')

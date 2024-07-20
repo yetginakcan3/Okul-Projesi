@@ -8,7 +8,7 @@ const Course = sequelize.define('course',{
         allowNull:false,
         primaryKey:true
     },
-    name:{
+    userName:{
         type:Sequelize.STRING,
         allowNull:false
     },

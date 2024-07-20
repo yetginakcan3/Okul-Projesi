@@ -8,7 +8,7 @@ const Teacher = sequelize.define('teachers',{
         allowNull:false,
         primaryKey:true
     },
-    name:{
+    userName:{
         type:Sequelize.STRING,
         allowNull:false
     },

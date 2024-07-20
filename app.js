@@ -4,6 +4,7 @@ const bodyParser= require('body-parser');
 const path = require('path')
 
 
+
 const sequelize = require('./utility/database')
 
 const Principal = require('./models/principal');
@@ -39,6 +40,12 @@ Grade.belongsTo(Student)
 const adminRoutes= require('./routes/admin')
 const userRoutes= require('./routes/user')
 
+const prcRoute = require('./routes/principal')
+
+
+app.use(express.json())
+
+app.use(prcRoute)
 
 
 app.use(bodyParser.urlencoded({extended:false}))
@@ -59,13 +66,13 @@ app.use((req,res) =>{
 
 
 
-sequelize.sync({ force: true }) // Tabloları zorla yeniden oluştur
+/*sequelize.sync({ force: true }) // Tabloları zorla yeniden oluştur
     .then(result => {
         console.log('Database synchronized');
     })
     .catch(err => {
         console.error('Error synchronizing database:', err);
-    });
+    });*/
 
 
 

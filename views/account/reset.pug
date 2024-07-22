@@ -1,0 +1,12 @@
+// views/account/reset-password.pug
+doctype html
+html
+  head
+    title Reset Password
+  body
+    h1 Reset Password Page
+    form(action="/reset", method="POST")
+      label(for="email") Email:
+      input(type="email", name="email", id="email")
+      br
+      button(type="submit") Reset Password

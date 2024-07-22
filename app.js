@@ -44,6 +44,10 @@ const prcRoute = require('./routes/principal')
 const teacRoute = require('./routes/teacher')
 const stuRoute = require('./routes/student')
 
+const accRoute = require('./routes/account')
+
+app.set('view engine', 'pug');
+app.set('views', './views');
 
 app.use(express.json())
 
@@ -51,6 +55,7 @@ app.use(prcRoute)
 
 app.use(teacRoute)
 app.use(stuRoute)
+app.use(accRoute)
 
 
 app.use(bodyParser.urlencoded({extended:false}))

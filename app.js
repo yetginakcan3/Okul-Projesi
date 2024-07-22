@@ -41,11 +41,16 @@ const adminRoutes= require('./routes/admin')
 const userRoutes= require('./routes/user')
 
 const prcRoute = require('./routes/principal')
+const teacRoute = require('./routes/teacher')
+const stuRoute = require('./routes/student')
 
 
 app.use(express.json())
 
 app.use(prcRoute)
+
+app.use(teacRoute)
+app.use(stuRoute)
 
 
 app.use(bodyParser.urlencoded({extended:false}))

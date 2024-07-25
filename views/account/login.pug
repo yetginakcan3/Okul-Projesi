@@ -1,4 +1,4 @@
-// views/login.pug
+// views/account/login.pug
 doctype html
 html
   head
@@ -7,9 +7,10 @@ html
     h1 Login Page
     form(action="/login", method="POST")
       label(for="username") Username:
-      input(type="text", name="username", id="username")
+      input(type="text", name="userName", id="userName")
       br
       label(for="password") Password:
       input(type="password", name="password", id="password")
       br
       button(type="submit") Login
+

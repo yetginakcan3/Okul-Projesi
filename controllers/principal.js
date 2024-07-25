@@ -60,7 +60,7 @@ const delItemTeacher = async(req,res) =>{
     try {
         const id = req.params.id
         await Teacher.destroy({where:{
-           userName : "changed"
+           userName : "yetginakcan"
         }})
         return res.json("basarıyla silinmistir")
     } catch (error) {

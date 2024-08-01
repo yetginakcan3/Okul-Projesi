@@ -7,12 +7,13 @@ const Student = require('../models/student')
 
 const createOneTeacher = async(req,res) =>{
     try {
-        const { userName, password, email,principalId } = req.body; 
+        const { userName, password, email,principalId,role } = req.body; 
         const newTeacher = await Teacher.create({
             userName,
             password,
             email,
-            principalId
+            principalId,
+            role
         })
         return res.status(201).json(newTeacher)
     } catch (error) {
@@ -32,8 +33,10 @@ const bulkCreateTeacher = async(req,res) =>{
 const findTeacher = async(req,res) =>{
     try {
         const id = req.params.id
-        const Teachers = await Teacher.findAll({
-            userName:"changed"
+        const Teachers = await Teacher.findOne({
+            where:{
+                id
+            }
         })
         return res.json(Teachers)
     } catch (error) {
@@ -43,10 +46,10 @@ const findTeacher = async(req,res) =>{
 
 const updateTeacher = async(req,res) =>{
     try {
-        const {userName} = req.body
-        const changedTeacher = await Teacher.update({userName:userName},{
+        const {id} = req.body
+        const changedTeacher = await Teacher.update({id:id},{
             where:{
-                userName:"changed"
+                id:22
             }
         })
         return res.json({changedTeacher})
@@ -60,7 +63,7 @@ const delItemTeacher = async(req,res) =>{
     try {
         const id = req.params.id
         await Teacher.destroy({where:{
-           userName : "yetginakcan"
+           id
         }})
         return res.json("basarıyla silinmistir")
     } catch (error) {
@@ -73,12 +76,13 @@ const delItemTeacher = async(req,res) =>{
 
 const createOneStudent = async(req,res) =>{
     try {
-        const { userName, password, email,principalId } = req.body; 
+        const { userName, password, email,principalId,role } = req.body; 
         const newStudent = await Student.create({
             userName,
             password,
             email,
-            principalId
+            principalId,
+            role
         })
         return res.status(201).json(newStudent)
     } catch (error) {
@@ -98,8 +102,10 @@ const bulkCreateStudent = async(req,res) =>{
 const findStudent = async(req,res) =>{
     try {
         const id = req.params.id
-        const Students = await Student.findAll({
-            userName:"changed"
+        const Students = await Student.findOne({
+            where:{
+                id
+            }
         })
         return res.json(Students)
     } catch (error) {
@@ -109,10 +115,10 @@ const findStudent = async(req,res) =>{
 
 const updateStudent = async(req,res) =>{
     try {
-        const {userName} = req.body
-        const changedStudent = await Student.update({userName:userName},{
+        const {id} = req.body
+        const changedStudent = await Student.update({id:id},{
             where:{
-                userName:"changed"
+               id:10
             }
         })
         return res.json({changedStudent})
@@ -126,7 +132,7 @@ const delItemStudent = async(req,res) =>{
     try {
         const id = req.params.id
         await Student.destroy({where:{
-           userName : "changed"
+          id
         }})
         return res.json("basarıyla silinmistir")
     } catch (error) {
@@ -164,8 +170,8 @@ const bulkCreateClass = async(req,res) =>{
 const findClass = async(req,res) =>{
     try {
         const id = req.params.id
-        const Classes = await Class.findAll({
-            userName:"changed"
+        const Classes = await Class.findOne({
+           id
         })
         return res.json(Classes)
     } catch (error) {
@@ -175,10 +181,10 @@ const findClass = async(req,res) =>{
 
 const updateClass = async(req,res) =>{
     try {
-        const {userName} = req.body
-        const changedClass = await Class.update({userName:userName},{
+        const {id} = req.body
+        const changedClass = await Class.update({id:id},{
             where:{
-                userName:"changed"
+               id:5
             }
         })
         return res.json({changedClass})
@@ -192,7 +198,7 @@ const delItemClass = async(req,res) =>{
     try {
         const id = req.params.id
         await Class.destroy({where:{
-           userName : "changed"
+          id
         }})
         return res.json("basarıyla silinmistir")
     } catch (error) {
@@ -229,8 +235,8 @@ const bulkCreateCourse = async(req,res) =>{
 const findCourse = async(req,res) =>{
     try {
         const id = req.params.id
-        const Courses = await Course.findAll({
-            userName:"changed"
+        const Courses = await Course.findOne({
+            id
         })
         return res.json(Courses)
     } catch (error) {
@@ -240,10 +246,10 @@ const findCourse = async(req,res) =>{
 
 const updateCourse = async(req,res) =>{
     try {
-        const {userName} = req.body
-        const changedCourse = await Course.update({userName:userName},{
+        const {id} = req.body
+        const changedCourse = await Course.update({id:id},{
             where:{
-                userName:"yetginakcan"
+                id:4
             }
         })
         return res.json({changedCourse})
@@ -257,7 +263,7 @@ const delItemCourse = async(req,res) =>{
     try {
         const id = req.params.id
         await Course.destroy({where:{
-           userName : "changed"
+          id
         }})
         return res.json("basarıyla silinmistir")
     } catch (error) {

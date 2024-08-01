@@ -1,21 +1,18 @@
-const express=require('express')
-const router=express.Router()
+const express = require('express');
+const router = express.Router();
+const { authorizePrincipal } = require('../middlewares/authMiddle');
 
-const path = require('path')
-
-
-
-// admin/add-student (GET)
-router.get('/add-student', (req, res, next) => {
-    res.sendFile(path.join(__dirname,'../','views','add-student.html'))
+router.get('/dashboard', authorizePrincipal(['principal']), (req, res, next) => {
+    res.send('Admin Dashboard');
 });
 
-// admin/add-student (POST)
-router.post('/add-student',(req,res,next) => {
-    //database kayıt
-    console.log(req.body)
+router.get('/manage-teachers', authorizePrincipal(['principal']), (req, res, next) => {
+    res.send('Manage Teachers');
+});
 
-    res.redirect('/')
-})
+router.get('/manage-students', authorizePrincipal(['principal']), (req, res, next) => {
+    res.send('Manage Students');
+});
 
-module.exports = router
+module.exports = router;
+

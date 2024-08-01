@@ -1,16 +1,7 @@
-// views/account/login.pug
-doctype html
-html
-  head
-    title Login
-  body
-    h1 Login Page
-    form(action="/login", method="POST")
-      label(for="username") Username:
-      input(type="text", name="userName", id="userName")
-      br
-      label(for="password") Password:
-      input(type="password", name="password", id="password")
-      br
-      button(type="submit") Login
+<form action="/auth/login" method="POST">
+    <input type="email" name="email" placeholder="email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
+
 

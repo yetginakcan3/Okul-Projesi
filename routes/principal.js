@@ -1,33 +1,34 @@
 const express = require('express')
 const router = express.Router()
 const prcCtrl = require('../controllers/principal')
+const { authorizePrincipal } = require('../middlewares/authMiddle');
 
-router.post('/teachers',prcCtrl.createOneTeacher)
-router.post('/bulkteachers',prcCtrl.bulkCreateTeacher)
-router.get('/teachers',prcCtrl.findTeacher)
-router.put('/teachers',prcCtrl.updateTeacher)
-router.delete('/teachers',prcCtrl.delItemTeacher)
+router.post('/createteachers',authorizePrincipal(['principal']),prcCtrl.createOneTeacher)
+router.post('/bulkteachers',authorizePrincipal(['principal']),prcCtrl.bulkCreateTeacher)
+router.get('/teachers/:id',authorizePrincipal(['principal']),prcCtrl.findTeacher)
+router.put('/teachers/:id',authorizePrincipal(['principal']),prcCtrl.updateTeacher)
+router.delete('/teachers/:id',authorizePrincipal(['principal']),prcCtrl.delItemTeacher)
 
-router.route('/students').post(prcCtrl.createOneStudent)
-router.route('/bulkStudents').post(prcCtrl.bulkCreateStudent)
-router.route('/students').get(prcCtrl.findStudent)
-router.route('/students').put(prcCtrl.updateStudent)
-router.route('/students').delete(prcCtrl.delItemStudent)
-
-
-router.route('/classes').post(prcCtrl.createOneClass)
-router.route('/bulkClasses').post(prcCtrl.bulkCreateClass)
-router.route('/classes').get(prcCtrl.findClass)
-router.route('/classes').put(prcCtrl.updateClass)
-router.route('/classes').delete(prcCtrl.delItemClass)
+router.post('/students', authorizePrincipal(['principal']), prcCtrl.createOneStudent);
+router.post('/bulkStudents',authorizePrincipal(['principal']),prcCtrl.bulkCreateStudent)
+router.get('/students/:id',authorizePrincipal(['principal']),prcCtrl.findStudent)
+router.put('/students/:id',authorizePrincipal(['principal']),prcCtrl.updateStudent)
+router.delete('/students/:id',authorizePrincipal(['principal']),prcCtrl.delItemStudent)
 
 
+router.post('/classes',authorizePrincipal(['principal']),prcCtrl.createOneClass)
+router.post('/bulkClasses',authorizePrincipal(['principal']),prcCtrl.bulkCreateClass)
+router.get('/classes/:id',authorizePrincipal(['principal']),prcCtrl.findClass)
+router.put('/classes/:id',authorizePrincipal(['principal']),prcCtrl.updateClass)
+router.delete('/classes/:id',authorizePrincipal(['principal']),prcCtrl.delItemClass)
 
-router.route('/courses').post(prcCtrl.createOneCourse)
-router.route('/bulkCourses').post(prcCtrl.bulkCreateCourse)
-router.route('/courses').get(prcCtrl.findCourse)
-router.route('/courses').put(prcCtrl.updateCourse)
-router.route('/courses').delete(prcCtrl.delItemCourse)
+
+
+router.post('/courses',authorizePrincipal(['principal']),prcCtrl.createOneCourse)
+router.post('/bulkCourses',authorizePrincipal(['principal']),prcCtrl.bulkCreateCourse)
+router.get('/courses/:id',authorizePrincipal(['principal']),prcCtrl.findCourse)
+router.put('/courses/:id',authorizePrincipal(['principal']),prcCtrl.updateCourse)
+router.delete('/courses/:id',authorizePrincipal(['principal']),prcCtrl.delItemCourse)
 
 
 

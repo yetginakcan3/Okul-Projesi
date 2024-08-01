@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const stuCtrl = require('../controllers/student')
+const {authorizeStudent} = require('../middlewares/authMiddle')
 
-router.get('/studentGrades',stuCtrl.findGrade)
+router.get('/studentGrades',authorizeStudent(['student']),stuCtrl.findGrade)
 
 module.exports = router

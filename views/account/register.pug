@@ -4,15 +4,12 @@ html
   head
     title Register
   body
-    h1 Register Page
-    form(action="/register", method="POST")
-      label(for="userName") Username:
-      input(type="text", name="userName", id="userName")
-      br
-      label(for="email") Email:
-      input(type="email", name="email", id="email")
-      br
-      label(for="password") Password:
-      input(type="password", name="password", id="password")
-      br
+    form(action="/auth/register" method="POST")
+      input(type="text" name="userName" placeholder="Username" required)
+      input(type="email" name="email" placeholder="Email" required)
+      input(type="password" name="password" placeholder="Password" required)
+      select(name="role")
+        option(value="principal") Principal
+        option(value="teacher") Teacher
+        option(value="student") Student
       button(type="submit") Register

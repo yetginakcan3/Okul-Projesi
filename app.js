@@ -5,13 +5,15 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const authMiddle = require('./middlewares/authMiddle');
 const sequelize = require('./utility/database');
-
+const multer = require('multer');
 const Principal = require('./models/principal');
 const Teacher = require('./models/teacher');
 const Student = require('./models/student');
 const Class = require('./models/class');
 const Course = require('./models/course');
 const Grade = require('./models/grade');
+
+
 
 // Associations
 Principal.hasMany(Teacher, { foreignKey: 'principalId' });
@@ -43,7 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require('dotenv').config();
 
-console.log(process.env.EMAIL_USER); 
+const uploadRoute = require('./routes/upload');
 
 
 
@@ -65,14 +67,14 @@ app.use(prcRoute);
 app.use(teacRoute);
 app.use(stuRoute);
 app.use(adminRoutes);
-
+app.use('/api/upload',uploadRoute);
 // Authorization
 app.use('/auth',  authRoute);
 app.use(userRoutes);
 
 
 
-app.use(authMiddle.authorizePrincipal);
+
 
 
 

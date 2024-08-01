@@ -99,8 +99,8 @@ exports.postRegister = async (req, res) => {
 
 
 exports.getLogout =(req,res,next) => {
-    res.cookie('jwt','',{maxAge:1})
-    res.redirect('/auth/logout')
+    res.cookie('Cookie_1','',{maxAge:1})
+    res.redirect('/auth/login')
 }
 
 

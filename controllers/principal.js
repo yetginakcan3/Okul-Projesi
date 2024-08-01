@@ -3,7 +3,7 @@ const Teacher = require('../models/teacher')
 const Class = require('../models/class')
 const Course = require('../models/course')
 const Student = require('../models/student')
-
+const { sendVerificationEmail } = require('./emailCtrl');
 
 const createOneTeacher = async(req,res) =>{
     try {
@@ -15,6 +15,10 @@ const createOneTeacher = async(req,res) =>{
             principalId,
             role
         })
+
+        await sendVerificationEmail(newTeacher.email, newTeacher.userName);
+
+
         return res.status(201).json(newTeacher)
     } catch (error) {
         return res.json({message:error.message})
@@ -84,6 +88,11 @@ const createOneStudent = async(req,res) =>{
             principalId,
             role
         })
+
+
+        await sendVerificationEmail(newStudent.email, newStudent.userName);
+
+
         return res.status(201).json(newStudent)
     } catch (error) {
         return res.json({message:error.message})

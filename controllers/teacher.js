@@ -27,8 +27,8 @@ const bulkCreateGrade = async(req,res) =>{
 const findGrade = async(req,res) =>{
     try {
         const studentId = req.params.studentId
-        const Grades = await Grade.findAll({
-            studentId:1
+        const Grades = await Grade.findOne({
+            studentId
         })
         return res.json(Grades)
     } catch (error) {
@@ -55,7 +55,7 @@ const delItemGrade = async(req,res) =>{
     try {
         const id = req.params.id
         await Grade.destroy({where:{
-           studentId:1
+           id
         }})
         return res.json("basarıyla silinmistir")
     } catch (error) {

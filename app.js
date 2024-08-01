@@ -41,7 +41,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+require('dotenv').config();
 
+console.log(process.env.EMAIL_USER); 
 
 
 

@@ -8,7 +8,9 @@ Bu projede kullanılan teknolojiler ve kütüphaneler:
 
 Github
 Nodejs
-postgresql
+Postgresql
+Postman
+starUml
 
 dotenv
 bcrypt (şifre hashlemek)
